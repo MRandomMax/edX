@@ -1,9 +1,6 @@
 # edX
 Summer edX analytics
 
-## Reference:  
-[Edx Research Guide](http://edx.readthedocs.io/projects/devdata/en/latest/)
-
 ## General Info
 #### Dataset Overview  
 Each course has 17 files (as in google doc), including:  
@@ -21,3 +18,6 @@ For a detailed documentation please see [EdX Research Guide, Ch2. Data Reference
 4. Some files (at least for the course I was working on) do not have any records in it. I chose not to save them at all.
 
 ### You can start playing with Tableau. But I guess we need to brainstorm some directions or further ways to treat/clean the data.
+
+## Reference:  
+[Edx Research Guide](http://edx.readthedocs.io/projects/devdata/en/latest/)

@@ -9,7 +9,7 @@ Each course has 17 files (as in google doc), including:
 3. 14 .sql file of user/course/enrollment, etc  
 4. 1 zip file of detailed info about data
 
-#### Data fields:  
+#### Data fields  
 For a detailed documentation please see [EdX Research Guide, Ch2. Data Reference](http://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/index.html)  
 **Crutial bits:**   
 1. Many fields are obsolete and no longer used. Many seemingly useful fields have actually no records.  

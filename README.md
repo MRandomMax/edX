@@ -17,4 +17,4 @@ For a detailed documentation please see [EdX Research Guide, Ch2. Data Reference
 **Crutial bits:**   
 1. Many fields are obsolete and no longer used. Many seemingly useful fields have actually no records.  
 2. The .sql files are sql output. Due to Django framework used by edX, many NULL values are displayed as blanks.  
-3. For codes to read all .sql data into dataframe in R (removing columns with all NULLs) please find read_sql.R in data folder.  
+3. For codes to read all .sql data into dataframe in R (removing columns with all NULLs) please find read_sql.R in lib folder.  

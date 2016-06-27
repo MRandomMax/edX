@@ -1,14 +1,15 @@
 #clean_first
 #-*-coding: utf8 -*-
+import time
 import pandas as pd
 import os
 import cPickle as pickle
 import json
 import tarfile
 
-raw_dir = "Columbiax-2016-06-12\\"
+raw_dir = "DS101X-1T2016\\"
 #make sure current directory is the parent directory of Columbiax-2016-06-12
-clean_dir = "Columbiax-2016-06-12\\py_data\\course_1\\"
+clean_dir = "clean_data\\"
 
 ind_folders = os.listdir(raw_dir)
 #all folders under Columbiax-2016-06-12
@@ -63,9 +64,11 @@ def upzip_gz():
 
     
 if __name__=='__main__':
-    #transfer_sql()
-    #upzip_gz()
+    start_time = time.time()
+    transfer_sql()
+    upzip_gz()
     transfer_mongo()
+    print 'Program runs for', (time.time() - start_time)/60, 'minutes.'
     
     
 

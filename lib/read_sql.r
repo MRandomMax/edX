@@ -39,10 +39,3 @@ save(user_id_map,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[11
 # save(verify_student_verificationstatus,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[12],".Rdata")))
 # save(wiki_article,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[13],".Rdata")))
 # save(wiki_articlerevision,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[14],".Rdata")))
-
-# b<- read.table(filenames[2], 
-#                sep="\t", skip =0, header = TRUE, 
-#                comment.char = "",check.names = FALSE, quote="",
-#                na.strings=c("NA","NaN", " "))
-
-

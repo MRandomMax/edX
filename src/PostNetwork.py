@@ -19,8 +19,10 @@ import pandas as pd
 import subprocess
 from collections import Counter
 import networkx as nx
+import os 
+import cPickle as pickle
 
-
+clean_dir = "clean_data\\"
 
 
 def connect_server(my_dbpath="C:/database_mongo"):
@@ -149,6 +151,19 @@ def merge_graph_map(map1,map2):
             map[pair] += map1[pair]
     map = [(x[0],x[1],map[x]) for x in map]
     return map     
+
+def create_author_index(df):
+    authors = set()
+    for l in ['parent_id','comment_thread_id']:
+        authors = authors.union(create_authors(df,l))
+    author_index = create_vertice_index(df,authors)
+    if 'author_index.p' in os.listdir(clean_dir):
+        return author_index
+    else:
+        with open(clean_dir+'author_index.p','wb') as f:
+            pickle.dump(author_index,f)
+        return author_index
+    
     
     
 def dataframe_to_graph(df,typ='comment'):
@@ -165,10 +180,7 @@ def dataframe_to_graph(df,typ='comment'):
         link = graph_links[typ]   
     else:
         raise ValueError("Not a valid graph type, please select from 'comment', 'commentthread' or 'mixture'.")
-    authors = set()
-    for l in ['parent_id','comment_thread_id']:
-        authors = authors.union(create_authors(df,l))
-    author_index = create_vertice_index(df,authors)
+    author_index = create_author_index(df)
     
     
     if link in ['parent_id','comment_thread_id']:

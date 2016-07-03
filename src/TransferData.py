@@ -1,5 +1,15 @@
-#clean_first
 #-*-coding: utf8 -*-
+"""
+Created on Sun Jun 26 xx:xx:xx 2016
+
+@author: Ziwei Meng
+
+Package name: TransferData
+
+various functions for transfering .sql and .mongo files to python object 
+
+
+"""
 import time
 import pandas as pd
 import os

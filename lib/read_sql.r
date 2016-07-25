@@ -22,7 +22,7 @@ for (i in 1:length(filenames)){
   fni<-fn[i]
   df<-read.delim(filenames[i], sep="\t", skip =0, header = TRUE, 
                         comment.char = "",check.names = FALSE, quote="",
-                        na.strings=c("NA","NaN", " "))
+                        na.strings=c("NA","NaN", " "),stringsAsFactors = FALSE)
   df<-df[,!apply (is.na(df), 2, all)]
   assign(fni,df)
   rm(df)
@@ -46,9 +46,6 @@ save(student_languageproficiency,file=(paste0(lead,fn[7],".Rdata")))
 save(user_id_map,file=(paste0(lead,fn[11],".Rdata")))
 # save(verify_student_verificationstatus,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[12],".Rdata")))
 # save(wiki_article,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[13],".Rdata")))
-<<<<<<< Updated upstream
-# save(wiki_articlerevision,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[14],".Rdata")))
-=======
 # save(wiki_articlerevision,file=(paste0("/Users/Bianbian/Documents/Work/edX/R_file/",fn[14],".Rdata")))
 
 # b<- read.table(filenames[2], 
@@ -58,4 +55,6 @@ save(user_id_map,file=(paste0(lead,fn[11],".Rdata")))
 
 courseware_studentmodule=ColumbiaX.DS101X.1T2016.courseware_studentmodule.prod.analytics <- read.delim2("~/Desktop/EDX/data/ColumbiaX-DS101X-1T2016/ColumbiaX-DS101X-1T2016-courseware_studentmodule-prod-analytics.sql", stringsAsFactors=FALSE)
 save(courseware_studentmodule,file='courseware_studentmodule.Rdata')
->>>>>>> Stashed changes
+
+auth_userprofile=read.delim2("/Users/sunxiaohan/Desktop/EDX/data/ColumbiaX-DS101X-1T2016/ColumbiaX-DS101X-1T2016-auth_userprofile-prod-analytics.sql", stringsAsFactors=FALSE)
+save(auth_userprofile,file='auth_userprofile.Rdata')

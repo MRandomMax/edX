@@ -1,12 +1,13 @@
 rm(list=ls())
 #setwd("/Users/Bianbian/Documents/Work/edX/DS101X-1T2016")
-setwd("~/Desktop/EDX/data/ColumbiaX-DS101X-1T2016")
+setwd("~/Desktop/EDX/Data")
 #########################
 #List all .sql filenames 
 #########################
 #filenames<-list.files("/Users/Bianbian/Documents/Work/edX/DS101X-1T2016", pattern="*.sql")
-filenames<-list.files("~/Desktop/EDX/data/ColumbiaX-DS101X-1T2016", pattern="*.sql")
-fn<-gsub("-prod-analytics.sql","",gsub("ColumbiaX-DS101X-1T2016-","",filenames))
+
+filenames<-list.files("~/Desktop/EDX/Data", pattern="*.sql")
+fn<-gsub("-prod-analytics.sql","",gsub("ColumbiaX-DS101X-3T2015-","",filenames))
 
 #######################################
 # Read in these data 
@@ -21,7 +22,7 @@ fn<-gsub("-prod-analytics.sql","",gsub("ColumbiaX-DS101X-1T2016-","",filenames))
 for (i in 1:length(filenames)){
   fni<-fn[i]
   df<-read.delim(filenames[i], sep="\t", skip =0, header = TRUE, 
-                        comment.char = "",check.names = FALSE, quote="",
+                        comment.char = "",check.names = FALSE, quote='',
                         na.strings=c("NA","NaN", " "),stringsAsFactors = FALSE)
   df<-df[,!apply (is.na(df), 2, all)]
   assign(fni,df)
@@ -35,6 +36,7 @@ auth_user<-auth_user[,!apply (is.na(auth_user), 2, all)]
 lead='~/Desktop/EDX/newdata/'
 
 save(auth_userprofile,file=(paste0(lead,fn[2],".Rdata")))
+save(auth_user,file=(paste0(lead,fn[1],".Rdata")))
 save(certificates_generatedcertificate,file=(paste0(lead,fn[3],".Rdata")))
 save(courseware_studentmodule,file=(paste0(lead,fn[4],".Rdata")))
 save(student_anonymoususerid,file=(paste0(lead,fn[5],".Rdata")))
